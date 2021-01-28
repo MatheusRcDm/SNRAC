@@ -12,5 +12,5 @@ estão com níveis abaixo ou acima do recomendado.
 
 A proposta deste projeto têm como objetivo criar um sistema que servirá como uma ferramenta
 de tradução de resultados das análises laboratoriais para uma visualização do posicionamento
-em que cada elemento se encontra dentro da relação dos níveis indicados no BOLETIM
-TÉCNICO 100 – Recomendações de Adubação e Calagem para o Estado de São Paulo.
+em que cada elemento se encontra dentro da relação dos níveis indicados nos livros Boletim 
+Técnico 100 (IAC, 1997) e Manual do Café: manejo de cafezais em produção (Mesquita, 2016)
