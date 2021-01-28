@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    section#main.wrapper
+        div.inner
+            div.content#from_Login_Cadastro
+                h2 Cadastrar uma conta
+                hr
+                form(method='POST', action='/users/register')
+                    #form-group
+                        label Nome:
+                        input.form-control(name='name', type='text')
+                    #form-group
+                        label Email:
+                        input.form-control(name='email', type='text')
+                    #form-group
+                        label Nome de usuário:
+                        input.form-control(name='username',type='text')
+                    #form-group
+                        label Senha:
+                        input.form-control(name='password',type='password')
+                    #form-group
+                        label Confirmar senha:
+                        input.form-control(name='password2',type='password')
+                    br
+                    ul.actions
+                        li
+                            input.btn(type='submit',value='Continuar',class='primary')
+                        li
+                            a.button(href='/users/login') Já possui uma conta?

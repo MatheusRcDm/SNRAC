@@ -1,0 +1,50 @@
+extends layout
+
+block content
+    // Banner
+    section#banner
+        .inner#banner-nome
+            h1(style='font-size: 2.5rem;') SISTEMA PARA NIVELAMENTO DE RESULTADOS DE AMOSTRAS DE CAFÉ
+    // Informações
+    section.wrapper
+        .inner
+            header.special
+                h2 A ferramenta
+                p#ferramenta
+                    | A classificação do solo é imprescindível aos produtores, pois permite estabelecer relação direta com o crescimento da planta, 
+                    | além de ajudar a definir áreas adequadas para plantio. A falta destes dados sobre o nivelamento adequado dos nutrientes pode ser 
+                    | o fator que definirá a qualidade da produção e até prevenir perdas deste cultivo.</br></br>
+                    | Esse site t&ecirc;m como objetivo oferecer um sistema que serve como uma ferramenta
+                    | de tradu&ccedil;&atilde;o de resultados das an&aacute;lises laboratoriais para uma visualiza&ccedil;&atilde;o do posicionamento
+                    | em que cada elemento se encontra dentro da rela&ccedil;&atilde;o dos n&iacute;veis indicados no Boletim Técnico 100 (IAC, 1997) e no
+                    | Manual do Café: manejo de cafezais em produção (Mesquita, 2016).
+            header.special
+                h2 Instru&ccedil;&otilde;es
+            .highlights
+                section
+                    .content
+                        header
+                            a.icon.fa-vcard-o
+                                span.label Icon
+                            h3 1 - Clique no bot&atilde;o abaixo
+                        p
+                            | Acesse a p&aacute;gina para gerar uma nova an&aacute;lise atrav&eacute;s do bot&atilde;o abaixo, intitulado &quot;Fazer uma nova an&aacute;lise&quot;.
+                section
+                    .content
+                        header
+                            a.icon.fa-files-o
+                                span.label Icon
+                            h3 2 - Insira os dados
+                        p
+                            | Em seguida, insira um nome para a sua an&aacute;lise, selecione o tipo da amostra e preencha os valores correspondentes de cada elemento listado.
+                section
+                    .content
+                        header
+                            a.icon.fa-floppy-o
+                                span.label Icon
+                            h3 3 - Resultado
+                        p
+                            | Clique em continuar e pronto, agora você pode visualizar o resultado da sua análise.
+            ul.actions
+                li.botao_nova_analise_index
+                    a.button.primary.large(href='/analises/add') FAZER UMA NOVA AN&Aacute;LISE

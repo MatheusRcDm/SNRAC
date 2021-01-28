@@ -1,0 +1,447 @@
+extends layout
+
+block content
+    // Análise
+    section#main.wrapper
+        .inner
+            .content
+                header
+                    h2 #{analise.title} - #{analise.type}
+                hr
+                if analise.type == 'folha'
+                    // Resultado Folha
+                    #resultadoFolha.row.gtr-uniform(style='display:-ms-grid')
+                        .col-6.col-12-medium
+                            // Macro Nutrientes Folha
+                            ol
+                                h2 Macro nutrientes
+                                .table-wrapper
+                                    table#tabelaMacro
+                                        colgroup
+                                            col.coluna_nome
+                                            col.coluna_valor
+                                            col.coluna_qtd_baixo_alto
+                                            col.coluna_adequado
+                                            col.coluna_qtd_baixo_alto
+                                        thead
+                                            tr
+                                                th Nome
+                                                th Valor (g)
+                                                th Baixo
+                                                th Adequado
+                                                th Alto
+                                        tbody
+                                            tr
+                                                td Cálcio (Ca)
+                                                td #{analise.valorCalcio_f}
+                                                if analise.valorCalcio_f < 10
+                                                    td.highlight_baixo &lt; 10
+                                                    td.nivelMedio 10 - 15
+                                                    td.nivelAlto &gt; 15
+                                                else if analise.valorCalcio_f >= 10 && analise.valorCalcio_f < 15
+                                                    td.nivelBaixo &lt; 10
+                                                    td.highlight_adequado 10 - 15
+                                                    td.nivelAlto &gt; 15
+                                                else
+                                                    td.nivelBaixo &lt; 10
+                                                    td.nivelMedio 10 - 15
+                                                    td.highlight_alto &gt; 15
+                                            tr
+                                                td Enxofre (S)
+                                                td #{analise.valorEnxofre_f}
+                                                if analise.valorEnxofre_f < 1.5
+                                                    td.highlight_baixo &lt; 1,5
+                                                    td.nivelMedio 1,5 - 2
+                                                    td.nivelAlto &gt; 2
+                                                else if analise.valorEnxofre_f >= 1.5 && analise.valorEnxofre_f <= 2
+                                                    td.nivelBaixo &lt; 1,5
+                                                    td.highlight_adequado 1,5 - 2
+                                                    td.nivelAlto &gt; 2
+                                                else
+                                                    td.nivelBaixo &lt; 1,5
+                                                    td.nivelMedio 1,5 - 2
+                                                    td.highlight_alto &gt; 2
+                                            tr
+                                                td Fósforo (P)
+                                                td #{analise.valorFosforo_f}
+                                                if analise.valorFosforo_f < 1.2
+                                                    td.highlight_baixo &lt; 1,2
+                                                    td.nivelMedio 1,2 - 2
+                                                    td.nivelAlto &gt; 2
+                                                else if analise.valorFosforo_f >= 1.2 && analise.valorFosforo_f <= 2
+                                                    td.nivelBaixo &lt; 1,2
+                                                    td.highlight_adequado 1,2 - 2
+                                                    td.nivelAlto &gt; 2
+                                                else
+                                                    td.nivelBaixo &lt; 1,2
+                                                    td.nivelMedio 1,2 - 2
+                                                    td.highlight_alto &gt; 2
+                                            tr
+                                                td Magnésio (Mg)
+                                                td #{analise.valorMagnesio_f}
+                                                if analise.valorMagnesio_f < 3
+                                                    td.highlight_baixo &lt; 3
+                                                    td.nivelMedio 3 - 5
+                                                    td.nivelAlto &gt; 5
+                                                else if analise.valorMagnesio_f >= 3 && analise.valorMagnesio_f <= 5
+                                                    td.nivelBaixo &lt; 3
+                                                    td.highlight_adequado 3 - 5
+                                                    td.nivelAlto &gt; 5
+                                                else
+                                                    td.nivelBaixo &lt; 3
+                                                    td.nivelMedio 3 - 5
+                                                    td.highlight_alto &gt; 5
+                                            tr
+                                                td Potássio (K)
+                                                td #{analise.valorPotassio_f}
+                                                if analise.valorPotassio_f < 20
+                                                    td.highlight_baixo &lt; 20
+                                                    td.nivelMedio 20 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else if analise.valorPotassio_f >= 20 && analise.valorPotassio_f <= 30
+                                                    td.nivelBaixo &lt; 20
+                                                    td.highlight_adequado 20 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else
+                                                    td.nivelBaixo &lt; 20
+                                                    td.nivelMedio 20 - 30
+                                                    td.highlight_alto &gt; 30
+                                            tr
+                                                td Nitrogênio (N)
+                                                td #{analise.valorNitrogenio_f}
+                                                if analise.valorNitrogenio_f < 25
+                                                    td.highlight_baixo &lt; 25
+                                                    td.nivelMedio 25 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else if analise.valorNitrogenio_f >= 25 && analise.valorNitrogenio_f <= 30
+                                                    td.nivelBaixo &lt; 25
+                                                    td.highlight_adequado 25 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else
+                                                    td.nivelBaixo &lt; 25
+                                                    td.nivelMedio 25 - 30
+                                                    td.highlight_alto &gt; 30
+                        .col-6.col-12-medium
+                            // Micro Nutrientes Folha
+                            ol
+                                h2 Micro nutrientes
+                                .table-wrapper
+                                    table#tabelaMicro
+                                        colgroup
+                                            col.coluna_nome
+                                            col.coluna_valor
+                                            col.coluna_qtd_baixo_alto
+                                            col.coluna_adequado
+                                            col.coluna_qtd_baixo_alto
+                                        thead
+                                            tr
+                                                th Nome
+                                                th Valor (mg)
+                                                th Baixo
+                                                th Adequado
+                                                th Alto
+                                        tbody
+                                            tr
+                                                td Boro (B)
+                                                td #{analise.valorBoro_f}
+                                                if analise.valorBoro_f < 60
+                                                    td.highlight_baixo &lt; 60
+                                                    td.nivelMedio 60 - 100
+                                                    td.nivelAlto &gt; 100
+                                                else if analise.valorBoro_f >= 60 && analise.valorBoro_f <= 100
+                                                    td.nivelBaixo &lt; 60
+                                                    td.highlight_adequado 60 - 100
+                                                    td.nivelAlto &gt; 100
+                                                else
+                                                    td.nivelBaixo &lt; 60
+                                                    td.nivelMedio 60 - 100
+                                                    td.highlight_alto &gt; 100
+                                            tr
+                                                td Manganês (Mn)
+                                                td #{analise.valorManganes_f}
+                                                if analise.valorManganes_f < 50
+                                                    td.highlight_baixo &lt; 50
+                                                    td.nivelMedio 50 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else if analise.valorManganes_f >= 50 && analise.valorManganes_f <= 200
+                                                    td.nivelBaixo &lt; 50
+                                                    td.highlight_adequado 50 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else
+                                                    td.nivelBaixo &lt; 50
+                                                    td.nivelMedio 50 - 200
+                                                    td.highlight_alto &gt; 200
+                                            tr
+                                                td Matéria Orgânica (MO)
+                                                td #{analise.valorOrganica_f}
+                                                if analise.valorOrganica_f < 0.1
+                                                    td.highlight_baixo &lt; 0,1
+                                                    td.nivelMedio 0,1 - 0,2
+                                                    td.nivelAlto &gt; 0,2
+                                                else if analise.valorOrganica_f >= 0.1 && analise.valorOrganica_f <= 0.2
+                                                    td.nivelBaixo &lt; 0,1
+                                                    td.highlight_adequado 0,1 - 0,2
+                                                    td.nivelAlto &gt; 0,2
+                                                else
+                                                    td.nivelBaixo &lt; 0,1
+                                                    td.nivelMedio 0,1 - 0,2
+                                                    td.highlight_alto &gt; 0,2
+                                            tr
+                                                td Cobre (Cu)
+                                                td #{analise.valorCobre_f}
+                                                if analise.valorCobre_f < 10
+                                                    td.highlight_baixo &lt; 10
+                                                    td.nivelMedio 10 - 20
+                                                    td.nivelAlto &gt; 20
+                                                else if analise.valorCobre_f >= 10 && analise.valorCobre_f <= 20
+                                                    td.nivelBaixo &lt; 10
+                                                    td.highlight_adequado 10 - 20
+                                                    td.nivelAlto &gt; 20
+                                                else
+                                                    td.nivelBaixo &lt; 10
+                                                    td.nivelMedio 10 - 20
+                                                    td.highlight_alto &gt; 20
+                                            tr
+                                                td Zinco (Zn)
+                                                td #{analise.valorZinco_f}
+                                                if analise.valorZinco_f < 20
+                                                    td.highlight_baixo &lt; 20
+                                                    td.nivelMedio 20 - 40
+                                                    td.nivelAlto &gt; 40
+                                                else if analise.valorZinco_f >= 20 && analise.valorZinco_f <= 40
+                                                    td.nivelBaixo &lt; 20
+                                                    td.highlight_adequado 20 - 40
+                                                    td.nivelAlto &gt; 40
+                                                else
+                                                    td.nivelBaixo &lt; 20
+                                                    td.nivelMedio 20 - 40
+                                                    td.highlight_alto &gt; 40
+                                            tr
+                                                td Ferro (Fe)
+                                                td #{analise.valorFerro_f}
+                                                if analise.valorFerro_f < 50
+                                                    td.highlight_baixo &lt; 50
+                                                    td.nivelMedio 50 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else if analise.valorFerro_f >= 50 && analise.valorFerro_f <= 200
+                                                    td.nivelBaixo &lt; 50
+                                                    td.highlight_adequado 50 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else
+                                                    td.nivelBaixo &lt; 50
+                                                    td.nivelMedio 50 - 200
+                                                    td.highlight_alto &gt; 200
+                else if analise.type == 'solo'
+                    // Resultado Solo
+                    #resultadoSolo.row.gtr-uniform(style='display:ms-grid')
+                        .col-6.col-12-medium
+                            // Macro Nutrientes Solo
+                            ol
+                                h2 Macro nutrientes
+                                .table-wrapper
+                                    table#tabelaMacro
+                                        colgroup
+                                            col.coluna_nome
+                                            col.coluna_valor
+                                            col.coluna_qtd_baixo_alto
+                                            col.coluna_adequado
+                                            col.coluna_qtd_baixo_alto
+                                        thead
+                                            tr
+                                                th Nome
+                                                th Valor (g)
+                                                th Baixo
+                                                th Adequado
+                                                th Alto
+                                        tbody
+                                            tr
+                                                td Cálcio (Ca)
+                                                td #{analise.valorCalcio_s}
+                                                if analise.valorCalcio_s < 3
+                                                    td.highlight_baixo &lt; 3
+                                                    td.nivelMedio 3 - 4
+                                                    td.nivelAlto &gt; 4
+                                                else if analise.valorCalcio_s >= 3 && analise.valorCalcio_s <= 4
+                                                    td.nivelBaixo &lt; 3
+                                                    td.highlight_adequado 3 - 4
+                                                    td.nivelAlto &gt; 4
+                                                else
+                                                    td.nivelBaixo &lt; 3
+                                                    td.nivelMedio 3 - 4
+                                                    td.highlight_alto &gt; 4
+                                            tr
+                                                td Enxofre (S)
+                                                td #{analise.valorEnxofre_s}
+                                                if analise.valorEnxofre_s < 10
+                                                    td.highlight_baixo &lt; 10
+                                                    td.nivelMedio 10 - 20
+                                                    td.nivelAlto &gt; 20
+                                                else if analise.valorEnxofre_s >= 10 && analise.valorEnxofre_s <= 20
+                                                    td.nivelBaixo &lt; 10
+                                                    td.highlight_adequado 10 - 20
+                                                    td.nivelAlto &gt; 20
+                                                else
+                                                    td.nivelBaixo &lt; 10
+                                                    td.nivelMedio 10 - 20
+                                                    td.highlight_alto &gt; 20
+                                            tr
+                                                td Fósforo (P)
+                                                td #{analise.valorFosforo_s}
+                                                if analise.valorFosforo_s < 15
+                                                    td.highlight_baixo &lt; 15
+                                                    td.nivelMedio 15 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else if analise.valorFosforo_s >= 15 && analise.valorFosforo_s <= 30
+                                                    td.nivelBaixo &lt; 15
+                                                    td.highlight_adequado 15 - 30
+                                                    td.nivelAlto &gt; 30
+                                                else
+                                                    td.nivelBaixo &lt; 15
+                                                    td.nivelMedio 15 - 30
+                                                    td.highlight_alto &gt; 30
+                                            tr
+                                                td Magnésio (Mg)
+                                                td #{analise.valorMagnesio_s}
+                                                if analise.valorMagnesio_s < 5
+                                                    td.highlight_baixo &lt; 5
+                                                    td.nivelMedio 5 - 9
+                                                    td.nivelAlto &gt; 9
+                                                else if analise.valorMagnesio_s >= 5 && analise.valorMagnesio_s <= 9
+                                                    td.nivelBaixo &lt; 5
+                                                    td.highlight_adequado 5 - 9
+                                                    td.nivelAlto &gt; 9
+                                                else
+                                                    td.nivelBaixo &lt; 5
+                                                    td.nivelMedio 5 - 9
+                                                    td.highlight_alto &gt; 9
+                                            tr
+                                                td Potássio (K)
+                                                td #{analise.valorPotassio_s}
+                                                if analise.valorFerro_f < 120
+                                                    td.highlight_baixo &lt; 120
+                                                    td.nivelMedio 120 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else if analise.valorPotassio_s >= 120 && analise.valorPotassio_s <= 200
+                                                    td.nivelBaixo &lt; 120
+                                                    td.highlight_adequado 120 - 200
+                                                    td.nivelAlto &gt; 200
+                                                else
+                                                    td.nivelBaixo &lt; 120
+                                                    td.nivelMedio 120 - 200
+                                                    td.highlight_alto &gt; 200
+                        .col-6.col-12-medium
+                            // Micro Nutrientes Solo
+                            ol
+                                h2 Micro nutrientes
+                                .table-wrapper
+                                    table#tabelaMicro
+                                        colgroup
+                                            col.coluna_nome
+                                            col.coluna_valor
+                                            col.coluna_qtd_baixo_alto
+                                            col.coluna_adequado
+                                            col.coluna_qtd_baixo_alto
+                                        thead
+                                            tr
+                                                th Nome
+                                                th Valor (mg)
+                                                th Baixo
+                                                th Adequado
+                                                th Alto
+                                        tbody
+                                            tr
+                                                td Boro (B)
+                                                td #{analise.valorBoro_s}
+                                                if analise.valorBoro_s < 0.3
+                                                    td.highlight_baixo &lt; 0,3
+                                                    td.nivelMedio 0,3 - 1
+                                                    td.nivelAlto &gt; 1
+                                                else if analise.valorBoro_s >= 0.3 && analise.valorBoro_s <= 1
+                                                    td.nivelBaixo &lt; 0,3
+                                                    td.highlight_adequado 0,3 - 1
+                                                    td.nivelAlto &gt; 1
+                                                else
+                                                    td.nivelBaixo &lt; 0,3
+                                                    td.nivelMedio 0,3 - 1
+                                                    td.highlight_alto &gt; 1
+                                            tr
+                                                td Manganês (Mn)
+                                                td #{analise.valorManganes_s}
+                                                if analise.valorManganes_s < 5
+                                                    td.highlight_baixo &lt; 5
+                                                    td.nivelMedio 5 - 15
+                                                    td.nivelAlto &gt; 15
+                                                else if analise.valorManganes_s >= 5 && analise.valorManganes_s <= 15
+                                                    td.nivelBaixo &lt; 5
+                                                    td.highlight_adequado 5 - 15
+                                                    td.nivelAlto &gt; 15
+                                                else
+                                                    td.nivelBaixo &lt; 5
+                                                    td.nivelMedio 5 - 15
+                                                    td.highlight_alto &gt; 15
+                                            tr
+                                                td Matéria Orgânica (MO)
+                                                td #{analise.valorOrganica_s}
+                                                if analise.valorOrganica_s < 2
+                                                    td.highlight_baixo &lt; 2
+                                                    td.nivelMedio 2 - 3
+                                                    td.nivelAlto &gt; 3
+                                                else if analise.valorOrganica_s >= 2 && analise.valorOrganica_s <= 3
+                                                    td.nivelBaixo &lt; 2
+                                                    td.highlight_adequado 2 - 3
+                                                    td.nivelAlto &gt; 3
+                                                else
+                                                    td.nivelBaixo &lt; 2
+                                                    td.nivelMedio 2 - 3
+                                                    td.highlight_alto &gt; 3
+                                            tr
+                                                td Cobre (Cu)
+                                                td #{analise.valorCobre_s}
+                                                if analise.valorCobre_s < 0.5
+                                                    td.highlight_baixo &lt; 0,5
+                                                    td.nivelMedio 0,5 - 1,5
+                                                    td.nivelAlto &gt; 1,5
+                                                else if analise.valorCobre_s >= 0.5 && analise.valorCobre_s <= 1.5
+                                                    td.nivelBaixo &lt; 0,5
+                                                    td.highlight_adequado 0,5 - 1,5
+                                                    td.nivelAlto &gt; 1,5
+                                                else
+                                                    td.nivelBaixo &lt; 0,5
+                                                    td.nivelMedio 0,5 - 1,5
+                                                    td.highlight_alto &gt; 1,5
+                                            tr
+                                                td Zinco (Zn)
+                                                td #{analise.valorZinco_s}
+                                                if analise.valorZinco_s < 2
+                                                    td.highlight_baixo &lt; 2
+                                                    td.nivelMedio 2 - 6
+                                                    td.nivelAlto &gt; 6
+                                                else if analise.valorZinco_s >= 2 && analise.valorZinco_s <= 6
+                                                    td.nivelBaixo &lt; 2
+                                                    td.highlight_adequado 2 - 6
+                                                    td.nivelAlto &gt; 6
+                                                else
+                                                    td.nivelBaixo &lt; 2
+                                                    td.nivelMedio 2 - 6
+                                                    td.highlight_alto &gt; 6
+                                            tr
+                                                td Acidez (Ph)
+                                                td #{analise.valorAcidez_s}
+                                                if analise.valorAcidez_s < 5.5
+                                                    td.highlight_baixo &lt; 5,5
+                                                    td.nivelMedio 5,5 - 6
+                                                    td.nivelAlto &gt; 6
+                                                else if analise.valorAcidez_s >= 5.5 && analise.valorAcidez_s <= 6
+                                                    td.nivelBaixo &lt; 5,5
+                                                    td.highlight_adequado 5,5 - 6
+                                                    td.nivelAlto &gt; 6
+                                                else
+                                                    td.nivelBaixo &lt; 5,5
+                                                    td.nivelMedio 5,5 - 6
+                                                    td.highlight_alto &gt; 6
+                ul.actions
+                    // Botões
+                    li
+                        a.button.primary(href='/analises/profile') Perfil
+                    li
+                        a.button(href='/analises/add') Nova análise

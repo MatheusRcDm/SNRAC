@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    section#main.wrapper
+        .inner
+            .content
+                header
+                    h2 Perfil
+                hr
+                h4.perfilH4 Nome: #{user.name}
+                h4.perfilH4 Nome de Usuário: #{user.username}
+                h4.perfilH4#perfilMargin Email: #{user.email}
+                .row.gtr-uniform(style='display:-ms-grid')
+                    // Análise Feitas
+                    ol
+                        h2 Análises
+                        hr
+                        .table-wrapper
+                            table
+                                thead
+                                    tr
+                                        th Nome
+                                        th Tipo
+                                        th Data
+                                        th Excluir
+                                tbody
+                                    - var existe_analise = false
+                                    each analise, i in analises
+                                        if analise.author == user.id
+                                            - existe_analise = true
+                                            document.location.reload(true)
+                                            tr
+                                                td
+                                                    a(href="/analises/"+analise._id)= analise.title
+                                                td #{analise.type}
+                                                td #{analise.date.toLocaleString()}
+                                                td 
+                                                    a.btn.delete-analise(href='#',data-id=analise._id) Deletar
+                                                        //- i.icon.fa-trash &nbsp;
+                                    if existe_analise == false
+                                        tr
+                                            td Nehuma análise realizada
+                                            td -
+                                            td -
+                                            td -

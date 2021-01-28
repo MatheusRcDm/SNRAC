@@ -1,0 +1,67 @@
+doctype html
+html
+    head
+        title SNRAC
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+        link(rel='icon' type='image/x-icon' href='/favicon.ico')
+        style
+            include ../public/assets/css/main.css
+            //- include ../public/assets/css/font-awesome.min.css
+        script(type='text/javascript' src='../assets/js/calculo_analise.js')
+    body.is-preload
+        // Header
+        header#header
+            a.logo(href='/') SNRAC
+            nav
+                a(href='#menu') Menu
+        // Menu lateral
+        nav#menu
+            ul.links
+                li
+                    a(href='/') Início
+                if user
+                    li
+                        a(href='/analises/add') Nova Análise
+                    li
+                        a(href='/analises/profile') Perfil
+                    li
+                        a(href='/users/logout') Sair
+                else
+                    li
+                        a(href='/users/login') Entrar
+                    li
+                        a(href='/users/register') Cadastrar
+        != messages('message', locals)
+        if errors
+            each error, i in errors
+                div(class="button primary fit small alert") #{error.msg}
+        block content
+        // Footer
+        footer#footer
+            .inner
+                .content
+                    section
+                        h3 Sobre n&oacute;s
+                        p
+                            | Esse sistema foi tema de TCC dos alunos Gabrieli A. Moreira e Matheus R. Deminovch do Instituto Federal de Educa&ccedil;&atilde;o, Ci&ecirc;ncia e Tecnologia de S&atilde;o Paulo, campus Salto, realizado no ano de 2020. O acesso ao site &eacute; totalmente gratuito e nos empenhamos ao m&aacute;ximo para mant&ecirc;-lo atualizado. O projeto completo est&aacute; dispon&iacute;vel para visualiza&ccedil;&atilde;o no GitHub. Em caso de d&uacute;vidas &eacute; posss&iacute;vel nos encontrar nos canais abaixo.
+                    section
+                        h3 Contato &amp; Links
+                        ul.plain
+                            li
+                                a(href='mailto:snrac.faq@gmail.com')
+                                    i.icon.fa-envelope &nbsp;
+                                    | snrac.faq@gmail.com
+                            li
+                                a(href='https://github.com/gabrielialani/SNRAC' target='_blank')
+                                    i.icon.fa-github &nbsp;
+                                    | Reposit&oacute;rio do Projeto
+                .copyright
+                    | &copy; 2020
+        // Scripts
+        script
+            include ../public/assets/js/jquery.min.js
+            include ../public/assets/js/browser.min.js
+            include ../public/assets/js/breakpoints.min.js
+            include ../public/assets/js/util.js
+            include ../public/assets/js/main.js

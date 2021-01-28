@@ -1,0 +1,122 @@
+extends layout
+
+block content
+    // Formulário de Nova Análise
+    section#main.wrapper
+        .inner
+            .content
+                header
+                    h2 Nova Análise
+                hr
+                form(method='POST', action='/analises/add')
+                    .row.gtr-uniform
+                        h4 Nome da análise:
+                        .col-4.col-12-xsmall
+                            input#name(type='text' name='title' value='' placeholder='Nome' required='')
+                        h4 Tipo de amostra:
+                        .col-3.col-12-xsmall
+                            select#category(name='type' onchange='exibirOcultar(event)' required='')
+                                option(value='')
+                                option.alpha(value='folha') Folha
+                                option.gamma(value='solo') Solo
+                        // Formulário Tipo Folha
+                        #folha(style='display:none')
+                            .row
+                                // Macro Nutrientes Folha
+                                .col-6.col-12-medium
+                                    ol.nutri
+                                        h7 Macro nutrientes
+                                        hr
+                                        li
+                                            h4 Cálcio (Ca):
+                                            input#calcio_f(name='valorCalcio_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                        li
+                                            h4 Enxofre (S):
+                                            input#enxofre_f(name='valorEnxofre_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                        li
+                                            h4 Fósforo (P):
+                                            input#fosforo_f(name='valorFosforo_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                        li
+                                            h4 Magnésio (Mg):
+                                            input#magnesio_f(name='valorMagnesio_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                        li
+                                            h4 Potássio (K):
+                                            input#potassio_f(name='valorPotassio_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                        li
+                                            h4 Nitrogênio (N):
+                                            input#nitrogenio_f(name='valorNitrogenio_f' type='number' step="0.01" placeholder='Valor (em gramas)')
+                                // Micro Nutrientes Folha
+                                .col-6.col-12-medium
+                                    ol.nutri
+                                        h7 Micro nutrientes
+                                        hr
+                                        li
+                                            h4 Boro (B):
+                                            input#boro_f(name='valorBoro_f' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Manganês (Mn):
+                                            input#manganes_f(name='valorManganes_f' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Matéria Orgânica (MO):
+                                            input#organica_f(name='valorOrganica_f' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Cobre (Cu):
+                                            input#cobre_f(name='valorCobre_f' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Zinco (Zn):
+                                            input#zinco_f(name='valorZinco_f' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Ferro (Fe):
+                                            input#ferro_f(name='valorFerro_f' type='number' step="0.01"  placeholder='Valor (em miligramas)')
+                        // Formulário Tipo Solo
+                        #solo(style='display:none')
+                            .row
+                                // Macro Nutrientes Solo
+                                .col-6.col-12-medium
+                                    ol.nutri
+                                        h7 Macro nutrientes
+                                        hr
+                                        li
+                                            h4 Cálcio (Ca):
+                                            input#calcio_s(name='valorCalcio_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Enxofre (S):
+                                            input#enxofre_s(name='valorEnxofre_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Fósforo (P):
+                                            input#fosforo_s(name='valorFosforo_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Magnésio (Mg):
+                                            input#magnesio_s(name='valorMagnesio_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Potássio (K):
+                                            input#potassio_s(name='valorPotassio_s' type='number' step="0.01"  placeholder='Valor (em miligramas)')
+                                // Micro Nutrientes Solo
+                                .col-6.col-12-medium
+                                    ol.nutri
+                                        h7 Micro nutrientes
+                                        hr
+                                        li
+                                            h4 Boro (B):
+                                            input#boro_s(name='valorBoro_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Manganês (Mn):
+                                            input#manganes_s(name='valorManganes_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Matéria Orgânica (MO):
+                                            input#organica_s(name='valorOrganica_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Cobre (Cu):
+                                            input#cobre_s(name='valorCobre_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Zinco (Zn):
+                                            input#zinco_s(name='valorZinco_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                                        li
+                                            h4 Acidez (pH):
+                                            input#acidez_s(name='valorAcidez_s' type='number' step="0.01" placeholder='Valor (em miligramas)')
+                        .col-12
+                            ul.actions
+                                li
+                                    input.primary(type='submit' value='Continuar')
+                                li
+                                    input(type='reset' value='Resetar')

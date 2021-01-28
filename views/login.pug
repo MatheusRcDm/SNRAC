@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    section#main.wrapper
+        div.inner
+            div.content#from_Login_Cadastro
+                h2 Entrar na conta
+                hr
+                form(method='POST', action='/users/login')
+                    #form-group
+                        label Nome de usuário:
+                        input.form-control(name='username',type='text')
+                    #form-group
+                        label Senha:
+                        input.form-control(name='password',type='password')
+                    br
+                    ul.actions
+                        li
+                            input(type='submit',value='Entrar',class='primary')
+                        li
+                            a.button(href='/users/register') Cadastrar uma conta
